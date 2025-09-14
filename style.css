@@ -389,12 +389,35 @@ main {
     flex-direction: column;
     background-color: #004e89;
     position: absolute;
-    top: 60px;     /* justo debajo de nav */
+    top: 60px;
     left: 0;
     width: 100%;
     padding: 20px;
-    z-index: 1000;
+    z-index: 10; /* BAJAMOS el z-index para que no tape todo */
   }
+
+  nav .menu.active {
+    display: flex;
+  }
+
+  nav .menu li {
+    margin-bottom: 10px;
+  }
+
+  nav .menu li a {
+    font-size: 1.1em;
+    color: white;
+  }
+
+  /* 👇 Este bloque es clave: evita que el menú tape el contenido */
+  main,
+  header,
+  section {
+    position: relative;
+    z-index: 1;
+  }
+}
+
 
   /* Al hacer toggle, se añade .active para desplegarlo */
   nav .menu.active {
@@ -512,6 +535,7 @@ textarea:valid {
     display: none;
   }
 }
+
 
 
 
