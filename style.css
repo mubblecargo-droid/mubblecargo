@@ -1,0 +1,382 @@
+/* 🔄 Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 🧱 Estilo general */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* 📝 Estilos para enlaces */
+a {
+  color: #0077b6;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* 🔷 Navegación */
+nav {
+  background-color: #004e89;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+}
+
+nav .logo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+nav .menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav .menu li a {
+  color: white;
+  font-weight: 500;
+}
+
+nav .menu li a:hover {
+  color: #90e0ef;
+}
+
+/* 🏠 Hero / Encabezado principal */
+.hero {
+  position: relative;
+  padding: 100px 20px;
+  text-align: center;
+  color: white;
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+              url("../img/camion-fondo.jpg") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.hero-text {
+  max-width: 800px;
+  margin: 0 auto;
+  z-index: 2;
+  position: relative;
+}
+
+.hero h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.2em;
+}
+
+.hero .cta {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: white;
+  color: #0077b6;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.hero .cta:hover {
+  background: #caf0f8;
+}
+
+/* 📦 Sección de servicios */
+.servicios {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.servicios h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  width: 250px;
+  text-align: center;
+  display: block;
+  color: inherit;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  color: #0077b6;
+}
+
+.card p {
+  font-size: 0.95em;
+}
+
+/* 📞 Pie de página */
+footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9em;
+}
+
+/* 📬 Formulario */
+.formulario {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.formulario label {
+  font-weight: bold;
+}
+
+.formulario input,
+.formulario textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.formulario button {
+  padding: 12px;
+  background-color: #0077b6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.formulario button:hover {
+  background-color: #00b4d8;
+}
+
+/* 📲 WhatsApp flotante */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  width: 60px;
+  height: 60px;
+  background-color: #25D366;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+/* 🛠️ Estilos adicionales */
+main {
+  animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.quienes {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.bloque {
+  background: #fff;
+  padding: 30px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.bloque h2 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  color: #0077b6;
+}
+
+.bloque p,
+.bloque ul {
+  font-size: 1em;
+  color: #333;
+}
+
+.bloque ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.bloque ul li::before {
+  content: "✔️ ";
+  margin-right: 8px;
+}
+
+.cta-container {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.cta-container .cta {
+  padding: 12px 24px;
+  background: #0077b6;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.cta-container .cta:hover {
+  background: #00b4d8;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 15px;
+    background-attachment: scroll;
+  }
+
+  .hero-text h1 {
+    font-size: 1.8em;
+  }
+
+  .hero-text p {
+    font-size: 1.1em;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group.full {
+    grid-column: span 1;
+  }
+}
+@media (min-width: 768px) {
+  .bloque p {
+    text-align: justify;
+  }
+}
+@media (max-width: 480px) {
+  nav .menu {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .card {
+    width: 100%;
+  }
+}
+.materiales {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.grid-materiales {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+.item {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.item h3 {
+  margin-top: 15px;
+  font-size: 1.2em;
+  color: #0077b6;
+}
+
+.item p {
+  font-size: 0.95em;
+  margin-top: 10px;
+}
+.grid-materiales .item img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  max-height: 200px; /* Ajustá este valor según el diseño */
+  display: block;
+  margin: 0 auto;
+}
+.item img {
+  border: 1px solid #ddd;
+  padding: 5px;
+  background: #f9f9f9;
+}
+.grid-materiales {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+.grid-materiales .item img {
+  max-height: 150px;
+}
+.grid-materiales .item h3 {
+  font-size: 1.1em;
+}
+.grid-materiales .item p {
+  font-size: 0.9em;
+}
+.grid-materiales {
+  gap: 15px;
+}

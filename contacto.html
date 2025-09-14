@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto | Mubble Cargo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Ícono flotante de WhatsApp -->
+  <a href="https://wa.me/56988984202" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+    <img src="img/whatsapp.png" alt="WhatsApp" />
+  </a>
+
+  <!-- Navegación -->
+  <nav>
+    <div class="logo">Mubble Cargo</div>
+    <ul class="menu">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="quienes.html">Quiénes Somos</a></li>
+      <li><a href="materiales.html">Materiales</a></li>
+      <li><a href="mudanzas.html">Mudanzas</a></li>
+      <li><a href="carga.html">Carga General</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- Encabezado -->
+  <header class="hero" style="background-image: url('img/camionchico.jpg');">
+    <h1>Contacto</h1>
+    <p>¿Tenés dudas, pedidos o querés cotizar? Escribinos</p>
+  </header>
+
+  <!-- Formulario de contacto -->
+  <section class="servicios">
+    <h2>Formulario de contacto</h2>
+    <form action="https://formspree.io/f/meoldbjv" method="POST" class="formulario">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required />
+
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="telefono">Teléfono (opcional):</label>
+      <input type="tel" id="telefono" name="telefono" />
+
+      <label for="mensaje">Mensaje:</label>
+      <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+
+      <!-- Redirección opcional después del envío -->
+      <input type="hidden" name="_next" value="gracias.html" />
+
+      <button type="submit">Enviar mensaje</button>
+    </form>
+  </section>
+
+  <!-- Pie de página -->
+  <footer>
+    <p>&copy; 2025 Mubble Cargo | Estamos para ayudarte</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
