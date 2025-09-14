@@ -28,6 +28,9 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 nav .logo {
@@ -50,6 +53,14 @@ nav .menu li a:hover {
   color: #90e0ef;
 }
 
+.menu-toggle {
+  display: none;
+  font-size: 2em;
+  cursor: pointer;
+  color: white;
+  z-index: 1001;
+}
+
 /* 🏠 Hero / Encabezado principal */
 .hero {
   position: relative;
@@ -57,18 +68,12 @@ nav .menu li a:hover {
   text-align: center;
   color: white;
   background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-              url("../img/camion-fondo.jpg") no-repeat center center;
-  background-size: cover;
-  background-attachment: fixed;
-}
-
-.hero-camion {
-  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
               url("img/camion-fondo.jpg") no-repeat center center;
   background-size: cover;
   background-attachment: fixed;
 }
 
+.hero-camion,
 .hero-quienes {
   background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
               url("img/camion-fondo.jpg") no-repeat center center;
@@ -314,12 +319,6 @@ main {
   }
 }
 
-@media (min-width: 768px) {
-  .bloque p {
-    text-align: justify;
-  }
-}
-
 @media (max-width: 480px) {
   nav .menu {
     flex-direction: column;
@@ -329,72 +328,7 @@ main {
   .card {
     width: 100%;
   }
-}
 
-/* 🧱 Materiales */
-.materiales {
-  padding: 40px 20px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.grid-materiales {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 15px;
-}
-
-.item {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  text-align: center;
-}
-
-.item img {
-  width: 100%;
-  height: auto;
-  max-height: 150px;
-  object-fit: contain;
-  border: 1px solid #ddd;
-  padding: 5px;
-  background: #f9f9f9;
-  border-radius: 5px;
-}
-
-.item h3 {
-  margin-top: 15px;
-  font-size: 1.1em;
-  color
-.menu-toggle {
-  display: none;
-  font-size: 1.8em;
-  cursor: pointer;
-  color: white;
-}
-
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-
-  nav .menu {
-    display: none;
-    flex-direction: column;
-    background-color: #004e89;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    width: 100%;
-    padding: 20px;
-  }
-
-  nav .menu.active {
-    display: flex;
-  }
-}
-@media (max-width: 480px) {
   .hero h1 {
     font-size: 1.6em;
   }
@@ -420,19 +354,7 @@ main {
     font-size: 0.95em;
     padding: 10px 20px;
   }
-}
-.card,
-.item {
-  width: 100%;
-  max-width: 300px;
-  margin: 0 auto;
-}
 
-.item img {
-  height: auto;
-  max-height: 150px;
-}
-@media (max-width: 480px) {
   .whatsapp-float {
     width: 50px;
     height: 50px;
@@ -446,49 +368,4 @@ main {
   }
 }
 
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.menu-toggle {
-  display: none;
-  font-size: 2em;
-  cursor: pointer;
-  color: white;
-}
-
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-
-  nav {
-    position: relative;
-  }
-
-  nav .menu {
-    display: none;
-    flex-direction: column;
-    background-color: #004e89;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    width: 100%;
-    padding: 20px;
-    z-index: 1000;
-  }
-
-  nav .menu.active {
-    display: flex;
-  }
-
-  nav .menu li {
-    margin-bottom: 10px;
-  }
-}
-
-
-
-
+/* 🧱
