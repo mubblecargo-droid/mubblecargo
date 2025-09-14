@@ -8,66 +8,152 @@
 </head>
 <body>
 
+  <!-- Navegación principal -->
+  <nav role="navigation" aria-label="Menú principal">
+    <div class="nav-header">
+      <button
+        type="button"
+        class="menu-toggle"
+        onclick="toggleMenu()"
+        aria-label="Mostrar menú"
+      >
+        ☰
+      </button>
+      <div class="logo">Mubble Cargo</div>
+    </div>
+    <ul class="menu">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="quienes.html">Quiénes Somos</a></li>
+      <li><a href="materiales.html">Materiales</a></li>
+      <li><a href="mudanzas.html">Mudanzas</a></li>
+      <li><a href="carga.html">Carga General</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+
   <!-- Ícono flotante de WhatsApp -->
-  <a href="https://wa.me/56988984202" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+  <a
+    href="https://wa.me/56988984202"
+    class="whatsapp-float"
+    target="_blank"
+    aria-label="Contacto por WhatsApp"
+  >
     <img src="img/whatsapp.png" alt="WhatsApp" />
   </a>
 
-  <!-- Navegación -->
-  <nav>
-  <div class="nav-header">
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    <div class="logo">Mubble Cargo</div>
-  </div>
-  <ul class="menu">
-    <li><a href="index.html">Inicio</a></li>
-    <li><a href="quienes.html">Quiénes Somos</a></li>
-    <li><a href="materiales.html">Materiales</a></li>
-    <li><a href="mudanzas.html">Mudanzas</a></li>
-    <li><a href="carga.html">Carga General</a></li>
-    <li><a href="contacto.html">Contacto</a></li>
-  </ul>
-</nav>
-
-
-  <!-- Encabezado -->
-  <header class="hero" style="background-image: url('img/camionchico.jpg');">
+  <!-- Hero / Encabezado -->
+  <header
+    class="hero"
+    style="
+      background-image: url('img/camionchico.jpg');
+      background-size: cover;
+      background-position: center;
+    "
+  >
     <h1>Contacto</h1>
     <p>¿Tenés dudas, pedidos o querés cotizar? Escribinos</p>
   </header>
 
-  <!-- Formulario de contacto -->
-  <section class="servicios">
-    <h2>Formulario de contacto</h2>
-    <form action="https://formspree.io/f/meoldbjv" method="POST" class="formulario">
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" name="nombre" required />
+  <!-- Contenido principal -->
+  <main role="main">
+    <section class="servicios">
+      <h2>Formulario de contacto</h2>
+      <form
+        id="contacto-form"
+        class="formulario"
+        action="https://formspree.io/f/meoldbjv"
+        method="POST"
+        novalidate
+      >
+        <div id="form-errors" aria-live="polite"></div>
 
-      <label for="email">Correo electrónico:</label>
-      <input type="email" id="email" name="email" required />
+        <label for="nombre">Nombre *</label>
+        <input
+          type="text"
+          id="nombre"
+          name="nombre"
+          required
+          minlength="3"
+          placeholder="Escribí tu nombre completo"
+        />
 
-      <label for="telefono">Teléfono (opcional):</label>
-      <input type="tel" id="telefono" name="telefono" />
+        <label for="email">Correo electrónico *</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          placeholder="ejemplo@dominio.com"
+        />
 
-      <label for="mensaje">Mensaje:</label>
-      <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+        <label for="telefono">Teléfono (opcional)</label>
+        <input
+          type="tel"
+          id="telefono"
+          name="telefono"
+          placeholder="+56 9 1234 5678"
+        />
 
-      <!-- Redirección opcional después del envío -->
-      <input type="hidden" name="_next" value="gracias.html" />
+        <label for="mensaje">Mensaje *</label>
+        <textarea
+          id="mensaje"
+          name="mensaje"
+          rows="5"
+          required
+          minlength="10"
+          placeholder="Escribí tu mensaje"
+        ></textarea>
 
-      <button type="submit">Enviar mensaje</button>
-    </form>
-  </section>
+        <input type="hidden" name="_next" value="gracias.html" />
+
+        <button type="submit">Enviar mensaje</button>
+      </form>
+    </section>
+  </main>
 
   <!-- Pie de página -->
-  <footer>
+  <footer role="contentinfo">
     <p>&copy; 2025 Mubble Cargo | Estamos para ayudarte</p>
   </footer>
 
   <!-- Scripts -->
-  <script src="script.js"></script>
+  <script>
+    // Menú hamburguesa
+    function toggleMenu() {
+      document.querySelector('nav .menu').classList.toggle('active');
+    }
+
+    // Validación simple del formulario
+    const form = document.getElementById('contacto-form');
+    const errorsContainer = document.getElementById('form-errors');
+
+    form.addEventListener('submit', function (e) {
+      const errors = [];
+      const nombre = form.nombre.value.trim();
+      const emailField = form.email;
+      const mensaje = form.mensaje.value.trim();
+
+      if (nombre.length < 3) {
+        errors.push('El nombre debe tener al menos 3 caracteres.');
+      }
+
+      if (!emailField.validity.valid) {
+        errors.push('Ingresa un correo electrónico válido.');
+      }
+
+      if (mensaje.length < 10) {
+        errors.push('El mensaje debe tener al menos 10 caracteres.');
+      }
+
+      if (errors.length > 0) {
+        e.preventDefault();
+        errorsContainer.innerHTML =
+          '<ul><li>' + errors.join('</li><li>') + '</li></ul>';
+      } else {
+        errorsContainer.innerHTML = '';
+      }
+    });
+  </script>
 </body>
 </html>
-
-
-
+```
