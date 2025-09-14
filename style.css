@@ -449,5 +449,46 @@ nav .menu {
   align-items: center;
 }
 
+nav .menu {
+  display: none; /* Oculto por defecto */
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav .menu {
+    display: none;
+    flex-direction: column;
+    background-color: #004e89;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 1000;
+  }
+
+  nav .menu.active {
+    display: flex;
+  }
+
+  nav .menu li {
+    margin-bottom: 10px;
+  }
+
+  nav .menu li a {
+    font-size: 1.1em;
+    color: white;
+  }
+
+  .nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
 
 
