@@ -290,8 +290,18 @@ main {
   background: #00b4d8;
 }
 
+@media (min-width: 769px) {
+  nav .menu {
+    display: flex;
+  }
+}
+
 /* 📱 Responsive: menú hamburguesa y ajustes móviles */
 @media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
   nav .menu {
     display: none;
     flex-direction: column;
@@ -308,10 +318,6 @@ main {
     display: flex;
   }
 
-  .menu-toggle {
-    display: block;
-  }
-
   nav .menu li {
     margin-bottom: 10px;
   }
@@ -319,6 +325,12 @@ main {
   nav .menu li a {
     font-size: 1.1em;
     color: white;
+  }
+
+  .nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 
@@ -489,6 +501,7 @@ nav .menu {
     align-items: center;
   }
 }
+
 
 
 
