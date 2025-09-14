@@ -105,6 +105,42 @@ if (formulario) {
     }
   });
 }
+// 1) Toggle hamburguesa
+function toggleMenu() {
+  document.querySelector('nav .menu').classList.toggle('active');
+}
+
+// 2) Validación básica del formulario
+const form = document.getElementById('contacto-form');
+const errorsContainer = document.getElementById('form-errors');
+
+form.addEventListener('submit', function (e) {
+  const errors = [];
+  const nombre = form.nombre.value.trim();
+  const emailField = form.email;
+  const mensaje = form.mensaje.value.trim();
+
+  if (nombre.length < 3) {
+    errors.push('El nombre debe tener al menos 3 caracteres.');
+  }
+
+  if (!emailField.validity.valid) {
+    errors.push('Ingresa un correo válido.');
+  }
+
+  if (mensaje.length < 10) {
+    errors.push('El mensaje debe tener al menos 10 caracteres.');
+  }
+
+  if (errors.length > 0) {
+    e.preventDefault();
+    errorsContainer.innerHTML =
+      '<ul><li>' + errors.join('</li><li>') + '</li></ul>';
+  } else {
+    errorsContainer.innerHTML = '';
+  }
+});
 
 // 🧠 Inicialización
 mostrarCatalogo();
+
