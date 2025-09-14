@@ -421,5 +421,17 @@ main {
     padding: 10px 20px;
   }
 }
+.card,
+.item {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.item img {
+  height: auto;
+  max-height: 150px;
+}
+
 
 
