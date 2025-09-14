@@ -28,9 +28,15 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
-  position: sticky;
+  position: sticky; /* no fijo, se queda arriba al hacer scroll */
   top: 0;
   z-index: 1000;
+}
+
+.nav-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 nav .logo {
@@ -290,14 +296,82 @@ main {
   background: #00b4d8;
 }
 
-/* 🖥️ Escritorio */
-@media (min-width: 769px) {
-  nav .menu {
-    display: flex;
+/* —————— SECCIÓN MATERIALES —————— */
+/* 📦 Sección Materiales */
+.materiales {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Grilla con tarjetas encapsuladas (mismo tamaño visual) */
+.grid-materiales {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* se adapta a ancho */
+  gap: 20px;
+  justify-items: center; /* centra las tarjetas dentro de su celda */
+}
+
+.item {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  /* Mantiene el “rectángulo” del mismo tamaño en todas las resoluciones */
+  width: 100%;
+  max-width: 250px; /* la tarjeta no crece más de esto en desktop */
+}
+
+.item img {
+  width: 100%;
+  height: 180px;           /* altura uniforme para todas las fotos */
+  object-fit: contain;     /* no recorta, mantiene proporción */
+  border: 1px solid #ddd;
+  padding: 5px;
+  background: #f9f9f9;
+  border-radius: 5px;
+}
+
+.item h3 {
+  margin-top: 15px;
+  font-size: 1.1em;
+  color: #0077b6;
+}
+
+.item p {
+  font-size: 0.9em;
+  margin-top: 10px;
+  color: #555;
+}
+
+/* 📱 Ajustes responsive de columnas (opcional para forzar 3/2/1) */
+@media (max-width: 992px) {
+  .grid-materiales {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* 📱 Móviles */
+@media (max-width: 600px) {
+  .grid-materiales {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* —————— MENÚ RESPONSIVE —————— */
+/* 🖥️ Escritorio: menú visible en línea */
+@media (min-width: 769px) {
+  nav .menu {
+    display: flex;
+    gap: 20px;
+  }
+}
+
+/* 📱 Móviles: menú hamburguesa desplegable */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
@@ -308,7 +382,7 @@ main {
     flex-direction: column;
     background-color: #004e89;
     position: absolute;
-    top: 60px;
+    top: 60px;  /* justo debajo del nav */
     left: 0;
     width: 100%;
     padding: 20px;
@@ -326,12 +400,6 @@ main {
   nav .menu li a {
     font-size: 1.1em;
     color: white;
-  }
-
-  .nav-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
   }
 
   .hero {
@@ -379,4 +447,7 @@ main {
     padding: 20px;
   }
 
-  .blo
+  .bloque h2 {
+    font-size: 1.4em;
+  }
+}
