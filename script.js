@@ -107,5 +107,10 @@ background: linear-gradient(...), url("img/camion-fondo.jpg") ...
       document.querySelector('.carrito').appendChild(boton);
     }
   }
-  
+  function toggleMenu() {
+  const menu = document.querySelector('.menu');
+  menu.classList.toggle('active');
+}
+
+
 
