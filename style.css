@@ -388,12 +388,14 @@ main {
     display: none;
     flex-direction: column;
     background-color: #004e89;
-    position: absolute;
+    position: fixed;        /* ← CAMBIAMOS de absolute a fixed */
     top: 60px;
     left: 0;
     width: 100%;
+    max-height: 80vh;       /* ← Limita el alto del menú */
+    overflow-y: auto;       /* ← Permite scroll si hay muchos ítems */
     padding: 20px;
-    z-index: 10; /* BAJAMOS el z-index para que no tape todo */
+    z-index: 1000;
   }
 
   nav .menu.active {
@@ -409,7 +411,7 @@ main {
     color: white;
   }
 
-  /* 👇 Este bloque es clave: evita que el menú tape el contenido */
+  /* 👇 Asegura que el contenido esté por debajo del menú */
   main,
   header,
   section {
@@ -417,9 +419,7 @@ main {
     z-index: 1;
   }
 }
-
-
-  /* Al hacer toggle, se añade .active para desplegarlo */
+ /* Al hacer toggle, se añade .active para desplegarlo */
   nav .menu.active {
     display: flex;
   }
@@ -535,6 +535,7 @@ textarea:valid {
     display: none;
   }
 }
+
 
 
 
