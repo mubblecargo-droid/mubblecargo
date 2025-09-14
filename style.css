@@ -383,3 +383,21 @@ main {
     font-size: 1.4
   }
 
+.grid-materiales {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas fijas en escritorio */
+  gap: 20px;
+}
+
+@media (max-width: 992px) {
+  .grid-materiales {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-materiales {
+    grid-template-columns: 1fr; /* 1 columna en móviles */
+  }
+}
+
