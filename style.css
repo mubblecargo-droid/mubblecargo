@@ -56,8 +56,22 @@ nav .menu li a:hover {
   padding: 100px 20px;
   text-align: center;
   color: white;
- background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-            url("../img/camion-fondo.jpg") no-repeat center center;
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+              url("../img/camion-fondo.jpg") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.hero-camion {
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+              url("img/camion-fondo.jpg") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.hero-quienes {
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+              url("img/camion-fondo.jpg") no-repeat center center;
   background-size: cover;
   background-attachment: fixed;
 }
@@ -299,11 +313,13 @@ main {
     grid-column: span 1;
   }
 }
+
 @media (min-width: 768px) {
   .bloque p {
     text-align: justify;
   }
 }
+
 @media (max-width: 480px) {
   nav .menu {
     flex-direction: column;
@@ -314,6 +330,8 @@ main {
     width: 100%;
   }
 }
+
+/* 🧱 Materiales */
 .materiales {
   padding: 40px 20px;
   max-width: 1000px;
@@ -322,8 +340,8 @@ main {
 
 .grid-materiales {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
 }
 
 .item {
@@ -336,72 +354,16 @@ main {
 
 .item img {
   width: 100%;
-  height: 180px;
-  object-fit: cover;
+  height: auto;
+  max-height: 150px;
+  object-fit: contain;
+  border: 1px solid #ddd;
+  padding: 5px;
+  background: #f9f9f9;
   border-radius: 5px;
 }
 
 .item h3 {
   margin-top: 15px;
-  font-size: 1.2em;
-  color: #0077b6;
-}
-
-.item p {
-  font-size: 0.95em;
-  margin-top: 10px;
-}
-.grid-materiales .item img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  max-height: 200px; /* Ajustá este valor según el diseño */
-  display: block;
-  margin: 0 auto;
-}
-.item img {
-  border: 1px solid #ddd;
-  padding: 5px;
-  background: #f9f9f9;
-}
-.grid-materiales {
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
-}
-.grid-materiales .item img {
-  max-height: 150px;
-}
-.grid-materiales .item h3 {
   font-size: 1.1em;
-}
-.grid-materiales .item p {
-  font-size: 0.9em;
-}
-.grid-materiales {
-  gap: 15px;
-}
-
-.hero-camion {
-  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-              url("img/camion-fondo.jpg") no-repeat center center;
-  background-size: cover;
-  background-attachment: fixed;
-}
-
-
-.hero-quienes {
-  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-              url("img/quienes-fondo.jpg") no-repeat center center;
-  background-size: cover;
-  background-attachment: fixed;
-}
-
-.hero {
-  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-              url("img/camion-fondo.jpg") no-repeat center center;
-  background-size: cover;
-  background-attachment: fixed;
-}
-
-
-
+  color
