@@ -1,3 +1,88 @@
+/* ─── NAVEGACIÓN PRINCIPAL ─── */
+nav {
+  background-color: #004e89;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.nav-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.menu-toggle {
+  display: none;       /* oculto en desktop */
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8em;
+  cursor: pointer;
+}
+
+nav .logo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+nav .menu {
+  display: flex;       /* visible en desktop */
+  list-style: none;
+  gap: 20px;
+  margin-left: auto;
+}
+
+nav .menu li a {
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+nav .menu li a:hover {
+  color: #90e0ef;
+}
+
+/* ─── MENÚ RESPONSIVE ─── */
+@media (max-width: 768px) {
+
+  /* Muestro el toggle ☰ */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Por defecto el menú oculto */
+  nav .menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;              /* justo debajo de nav */
+    left: 0;
+    width: 100%;
+    background-color: #004e89;
+    padding: 20px;
+  }
+
+  /* Cuando tiene la clase .active, se muestra */
+  nav .menu.active {
+    display: flex;
+  }
+
+  nav .menu li {
+    margin-bottom: 10px;
+  }
+
+  nav .menu li a {
+    font-size: 1.1em;
+  }
+}
+
 // 📱 Menú hamburguesa
 function toggleMenu() {
   const menu = document.querySelector('nav .menu');
@@ -143,4 +228,5 @@ form.addEventListener('submit', function (e) {
 
 // 🧠 Inicialización
 mostrarCatalogo();
+
 
