@@ -383,24 +383,6 @@ main {
     font-size: 1.4
   }
 
-.grid-materiales {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columnas fijas en escritorio */
-  gap: 20px;
-}
-
-@media (max-width: 992px) {
-  .grid-materiales {
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
-  }
-}
-
-@media (max-width: 600px) {
-  .grid-materiales {
-    grid-template-columns: 1fr; /* 1 columna en móviles */
-  }
-}
-
 /* 📦 Sección Materiales */
 .materiales {
   padding: 40px 20px;
@@ -428,8 +410,8 @@ main {
 
 .item img {
   width: 100%;
-  height: 180px; /* altura fija para uniformidad */
-  object-fit: contain; /* mantiene proporción sin recortar */
+  height: 180px; /* altura fija */
+  object-fit: contain;
   border: 1px solid #ddd;
   padding: 5px;
   background: #f9f9f9;
@@ -451,12 +433,12 @@ main {
 /* 📱 Ajustes responsive */
 @media (max-width: 992px) {
   .grid-materiales {
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablet */
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
   }
 }
 
 @media (max-width: 600px) {
   .grid-materiales {
-    grid-template-columns: 1fr; /* 1 columna en móvil */
+    grid-template-columns: 1fr; /* 1 columna en móviles */
   }
 }
