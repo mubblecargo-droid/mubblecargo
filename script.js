@@ -128,3 +128,9 @@ if (contactoForm && errorsContainer) {
 
 // 🧠 Inicialización
 mostrarCatalogo();
+document.querySelectorAll("nav .menu a").forEach(link => {
+  link.addEventListener("click", () => {
+    document.querySelector("nav .menu").classList.remove("active");
+  });
+});
+
