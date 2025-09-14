@@ -296,22 +296,22 @@ main {
   background: #00b4d8;
 }
 
-/* —————— SECCIÓN MATERIALES —————— */
-/* 📦 Sección Materiales */
+/* —————— SECCIÓN MATERIALES 100% RESPONSIVE —————— */
+/* Contenedor general */
 .materiales {
   padding: 40px 20px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* Grilla con tarjetas encapsuladas (mismo tamaño visual) */
+/* Grilla: 3 columnas en desktop, 2 en tablet, 1 en móvil */
 .grid-materiales {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* se adapta a ancho */
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  justify-items: center; /* centra las tarjetas dentro de su celda */
 }
 
+/* Tarjeta */
 .item {
   background: #fff;
   padding: 20px;
@@ -321,35 +321,34 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
-  /* Mantiene el “rectángulo” del mismo tamaño en todas las resoluciones */
-  width: 100%;
-  max-width: 250px; /* la tarjeta no crece más de esto en desktop */
+  width: 100%;         /* ocupa todo el ancho de su columna */
 }
 
+/* Imagen: se escala con la tarjeta, mantiene proporción y no excede altura */
 .item img {
-  width: 100%;
-  height: 180px;           /* altura uniforme para todas las fotos */
-  object-fit: contain;     /* no recorta, mantiene proporción */
+  width: 100%;         /* siempre al ancho del .item */
+  height: auto;        /* proporción natural */
+  max-height: 180px;   /* como tope para desktop */
+  object-fit: contain; /* no recorta */
   border: 1px solid #ddd;
   padding: 5px;
   background: #f9f9f9;
   border-radius: 5px;
 }
 
+/* Títulos y textos */
 .item h3 {
   margin-top: 15px;
   font-size: 1.1em;
   color: #0077b6;
 }
-
 .item p {
   font-size: 0.9em;
   margin-top: 10px;
   color: #555;
 }
 
-/* 📱 Ajustes responsive de columnas (opcional para forzar 3/2/1) */
+/* Ajustes de columnas según ancho */
 @media (max-width: 992px) {
   .grid-materiales {
     grid-template-columns: repeat(2, 1fr);
@@ -360,22 +359,58 @@ main {
   .grid-materiales {
     grid-template-columns: 1fr;
   }
+  
+  /* Opcional: si quieres que la imagen no supere X px en móvil, ajusta max-height */
+  .item img {
+    max-height: 150px;
+  }
 }
-
 /* —————— MENÚ RESPONSIVE —————— */
-/* 🖥️ Escritorio: menú visible en línea */
+/* Oculta el toggle en desktop y muestra el menú en línea */
 @media (min-width: 769px) {
+  .menu-toggle {
+    display: none;
+  }
+
   nav .menu {
     display: flex;
     gap: 20px;
   }
 }
 
-/* 📱 Móviles: menú hamburguesa desplegable */
+/* En móviles: muestra el toggle y esconde el menú */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
   }
+
+  nav .menu {
+    display: none;
+    flex-direction: column;
+    background-color: #004e89;
+    position: absolute;
+    top: 60px;     /* justo debajo de nav */
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 1000;
+  }
+
+  /* Al hacer toggle, se añade .active para desplegarlo */
+  nav .menu.active {
+    display: flex;
+  }
+
+  nav .menu li {
+    margin-bottom: 10px;
+  }
+
+  nav .menu li a {
+    font-size: 1.1em;
+    color: white;
+  }
+}
+
 
   nav .menu {
     display: none;
@@ -451,3 +486,4 @@ main {
     font-size: 1.4em;
   }
 }
+
