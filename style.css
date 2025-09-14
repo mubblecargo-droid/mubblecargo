@@ -367,3 +367,31 @@ main {
   margin-top: 15px;
   font-size: 1.1em;
   color
+.menu-toggle {
+  display: none;
+  font-size: 1.8em;
+  cursor: pointer;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav .menu {
+    display: none;
+    flex-direction: column;
+    background-color: #004e89;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    padding: 20px;
+  }
+
+  nav .menu.active {
+    display: flex;
+  }
+}
+
