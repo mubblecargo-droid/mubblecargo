@@ -379,4 +379,16 @@ main {
 }
 .grid-materiales {
   gap: 15px;
+
+}
+.hero {
+  position: relative;
+  padding: 100px 20px;
+  text-align: center;
+  color: white;
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+              url("img/camion-fondo.jpg") no-repeat center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
