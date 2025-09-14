@@ -486,4 +486,20 @@ main {
     font-size: 1.4em;
   }
 }
+/* ——— Validación de formulario ——— */
+input:invalid,
+textarea:invalid {
+  border: 1px solid #e63946;
+}
+
+input:valid,
+textarea:valid {
+  border: 1px solid #2a9d8f;
+}
+
+#form-errors {
+  color: #e63946;
+  margin-bottom: 15px;
+}
+
 
