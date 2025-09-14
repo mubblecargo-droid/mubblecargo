@@ -9,7 +9,7 @@
 body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #f5f5f5;
-  color: #333;
+  color: #222;
   line-height: 1.6;
 }
 
@@ -53,7 +53,7 @@ nav .menu li a:hover {
 .hero {
   position: relative;
   width: 100%;
-  height: 400px; /* altura más contenida */
+  height: 400px;
   text-align: center;
   color: white;
   background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
@@ -65,7 +65,6 @@ nav .menu li a:hover {
   justify-content: center;
   padding: 60px 20px;
 }
-
 
 .hero-text {
   max-width: 800px;
@@ -104,8 +103,15 @@ nav .menu li a:hover {
 }
 
 .servicios h2 {
-  font-size: 2em;
-  margin-bottom: 20px;
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #0077b6;
+}
+
+.servicios p {
+  font-size: 1rem;
+  margin-bottom: 25px;
+  color: #333;
 }
 
 .cards {
@@ -122,7 +128,6 @@ nav .menu li a:hover {
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   width: 250px;
   text-align: center;
-  color: inherit;
   transition: transform 0.3s ease;
 }
 
@@ -156,6 +161,8 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  background-color: #fff;
+  color: #333;
 }
 
 .formulario label {
@@ -210,92 +217,33 @@ footer {
   object-fit: contain;
 }
 
-/* 🛠️ Animación de entrada */
-main {
-  animation: fadeIn 0.8s ease-in;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* 👥 Sección Quiénes Somos */
-.quienes {
-  padding: 40px 20px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.bloque {
-  background: #fff;
-  padding: 30px;
-  margin-bottom: 30px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-.bloque h2 {
-  font-size: 1.8em;
-  margin-bottom: 15px;
-  color: #0077b6;
-}
-
-.bloque p,
-.bloque ul {
-  font-size: 1em;
-  color: #333;
-}
-
-.bloque ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-.bloque ul li::before {
-  content: "✔️ ";
-  margin-right: 8px;
-}
-
-.cta-container {
-  text-align: center;
-  margin-top: 40px;
-}
-
-.cta-container .cta {
-  padding: 12px 24px;
-  background: #0077b6;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
-}
-
-.cta-container .cta:hover {
-  background: #00b4d8;
-}
-
-/* 📦 Materiales */
-.materiales h2,
-.contacto h2 {
-  font-size: 2em;
-  margin-bottom: 10px;
-  color: #0077b6;
-}
-
-.materiales p,
-.contacto p {
-  font-size: 1em;
-  color: #333;
-  margin-bottom: 20px;
-}
-
+/* 👥 Quiénes Somos */
+.quienes,
+.contacto,
 .materiales {
   padding: 40px 20px;
   max-width: 1000px;
   margin: 0 auto;
+  background-color: #fff;
+  color: #333;
 }
 
+.quienes h2,
+.contacto h2,
+.materiales h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #0077b6;
+}
+
+.quienes p,
+.contacto p,
+.materiales p {
+  font-size: 1rem;
+  margin-bottom: 25px;
+}
+
+/* 📦 Materiales */
 .grid-materiales {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -312,8 +260,8 @@ main {
 
 .item img {
   width: 100%;
-  height: 180px;
-  object-fit: cover;
+  max-height: 150px;
+  object-fit: contain;
   border-radius: 5px;
   border: 1px solid #ddd;
   padding: 5px;
@@ -331,12 +279,21 @@ main {
   margin-top: 10px;
 }
 
+/* 🛠️ Animación de entrada */
+main {
+  animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* 📱 Responsive */
 @media (max-width: 768px) {
   .hero {
-    height: 600px;
+    height: 500px;
     padding: 60px 15px;
-    background-attachment: scroll;
   }
 
   .hero h1 {
@@ -360,44 +317,10 @@ main {
   .card {
     width: 100%;
   }
-
-  .form-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .form-group.full {
-    grid-column: span 1;
-  }
 }
 
 @media (min-width: 769px) {
-  .hero {
-    height: 400px;
-  }
-
   .bloque p {
     text-align: justify;
   }
 }
-section,
-.bloque,
-.formulario {
-  background-color: #fff;
-  color: #333;
-}
-.hero-text,
-footer {
-  color: white;
-}
-body {
-  background-color: #f5f5f5;
-  color: #222;
-}
-h2 {
-  font-size: 2rem;
-}
-p {
-  font-size: 1rem;
-}
-
-
