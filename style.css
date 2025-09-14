@@ -436,3 +436,9 @@ main {
   color: #555;
   text-align: center;
 }
+nav .menu {
+  list-style: none;
+  gap: 20px;
+  display: none; /* ← ESTA LÍNEA ES LA CLAVE */
+}
+
