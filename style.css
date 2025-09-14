@@ -276,6 +276,20 @@ main {
 }
 
 /* 📦 Materiales */
+.materiales h2,
+.contacto h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+  color: #0077b6;
+}
+
+.materiales p,
+.contacto p {
+  font-size: 1em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
 .materiales {
   padding: 40px 20px;
   max-width: 1000px;
@@ -365,4 +379,25 @@ main {
     text-align: justify;
   }
 }
+section,
+.bloque,
+.formulario {
+  background-color: #fff;
+  color: #333;
+}
+.hero-text,
+footer {
+  color: white;
+}
+body {
+  background-color: #f5f5f5;
+  color: #222;
+}
+h2 {
+  font-size: 2rem;
+}
+p {
+  font-size: 1rem;
+}
+
 
