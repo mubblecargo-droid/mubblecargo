@@ -394,4 +394,32 @@ main {
     display: flex;
   }
 }
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.6em;
+  }
+
+  .hero p {
+    font-size: 1em;
+  }
+
+  .bloque {
+    padding: 20px;
+  }
+
+  .bloque h2 {
+    font-size: 1.4em;
+  }
+
+  .bloque p,
+  .bloque ul {
+    font-size: 0.95em;
+  }
+
+  .cta {
+    font-size: 0.95em;
+    padding: 10px 20px;
+  }
+}
+
 
