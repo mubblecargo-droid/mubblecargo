@@ -452,6 +452,43 @@ nav {
   z-index: 1000;
 }
 
+.menu-toggle {
+  display: none;
+  font-size: 2em;
+  cursor: pointer;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    position: relative;
+  }
+
+  nav .menu {
+    display: none;
+    flex-direction: column;
+    background-color: #004e89;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 1000;
+  }
+
+  nav .menu.active {
+    display: flex;
+  }
+
+  nav .menu li {
+    margin-bottom: 10px;
+  }
+}
+
 
 
 
