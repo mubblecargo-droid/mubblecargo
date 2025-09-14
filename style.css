@@ -501,5 +501,17 @@ textarea:valid {
   color: #e63946;
   margin-bottom: 15px;
 }
+/* 🖥️ Mostrar menú en escritorio */
+@media (min-width: 769px) {
+  nav .menu {
+    display: flex;
+    gap: 20px;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+}
+
 
 
