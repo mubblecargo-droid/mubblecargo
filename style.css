@@ -292,10 +292,6 @@ main {
 
 /* 📱 Responsive: menú hamburguesa y ajustes móviles */
 @media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-
   nav .menu {
     display: none;
     flex-direction: column;
@@ -312,6 +308,10 @@ main {
     display: flex;
   }
 
+  .menu-toggle {
+    display: block;
+  }
+
   nav .menu li {
     margin-bottom: 10px;
   }
@@ -320,6 +320,8 @@ main {
     font-size: 1.1em;
     color: white;
   }
+}
+
 
   .hero {
     padding: 60px 15px;
@@ -446,5 +448,6 @@ nav .menu {
   justify-content: space-between;
   align-items: center;
 }
+
 
 
