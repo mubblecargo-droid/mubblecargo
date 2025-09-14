@@ -33,6 +33,8 @@ const productos = [
       contenedor.appendChild(card);
     });
   }
+background: linear-gradient(...), url("img/camion-fondo.jpg") ...
+
   
   function agregarAlCarrito(id) {
     const producto = productos.find(p => p.id === id);
@@ -106,3 +108,4 @@ const productos = [
     }
   }
   
+
