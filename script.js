@@ -1,466 +1,110 @@
-/* 🔄 Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+// 📱 Menú hamburguesa
+function toggleMenu() {
+  const menu = document.querySelector('nav .menu');
+  menu.classList.toggle('active');
 }
 
-/* 🧱 Estilo general */
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f5f5f5;
-  color: #333;
-  line-height: 1.6;
+// 🛒 Catálogo de productos
+const productos = [
+  { id: 1, nombre: "Caja chica (30x30x30)", precio: 800 },
+  { id: 2, nombre: "Caja mediana (40x40x40)", precio: 1000 },
+  { id: 3, nombre: "Caja grande (50x50x50)", precio: 1200 },
+  { id: 4, nombre: "Pack x10 cajas chicas", precio: 7500 },
+  { id: 5, nombre: "Pack x10 cajas grandes", precio: 11000 },
+  { id: 6, nombre: "Plástico burbuja (10m)", precio: 1800 },
+  { id: 7, nombre: "Plástico burbuja (30m)", precio: 4800 },
+  { id: 8, nombre: "Espuma flexible (1m x 10m)", precio: 2200 },
+  { id: 9, nombre: "Cinta adhesiva transparente", precio: 600 },
+  { id: 10, nombre: "Cinta reforzada", precio: 900 },
+  { id: 11, nombre: "Pack x5 cintas transparentes", precio: 2800 },
+  { id: 12, nombre: "Cutter profesional", precio: 700 },
+  { id: 13, nombre: "Marcador indeleble", precio: 400 },
+  { id: 14, nombre: "Etiquetas adhesivas (x50)", precio: 1000 },
+  { id: 15, nombre: "Pack completo de embalaje", precio: 15000 }
+];
+
+let carrito = [];
+
+// 🛍️ Mostrar catálogo
+function mostrarCatalogo() {
+  const contenedor = document.getElementById("catalogo");
+  if (!contenedor) return;
+
+  productos.forEach(prod => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <h3>${prod.nombre}</h3>
+      <p>Precio: $${prod.precio}</p>
+      <button onclick="agregarAlCarrito(${prod.id})">Agregar al carrito</button>
+    `;
+    contenedor.appendChild(card);
+  });
 }
 
-/* 📝 Enlaces */
-a {
-  color: #0077b6;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-/* 🔷 Navegación */
-nav {
-  background-color: #004e89;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  padding: 15px 30px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.nav-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-nav .logo {
-  font-size: 1.5em;
-  font-weight: bold;
-}
-
-.menu-toggle {
-  display: none;
-  font-size: 2em;
-  cursor: pointer;
-  color: white;
-  z-index: 1001;
-}
-
-nav .menu {
-  list-style: none;
-  gap: 20px;
-  display: none; /* Oculto por defecto */
-}
-
-nav .menu li a {
-  color: white;
-  font-weight: 500;
-}
-
-nav .menu li a:hover {
-  color: #90e0ef;
-}
-
-/* 🏠 Hero */
-.hero {
-  position: relative;
-  padding: 100px 20px;
-  text-align: center;
-  color: white;
-  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-              url("img/camion-fondo.jpg") no-repeat center center;
-  background-size: cover;
-  background-attachment: fixed;
-}
-
-.hero-camion,
-.hero-quienes {
-  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-              url("img/camion-fondo.jpg") no-repeat center center;
-  background-size: cover;
-  background-attachment: fixed;
-}
-
-.hero-text {
-  max-width: 800px;
-  margin: 0 auto;
-  z-index: 2;
-  position: relative;
-}
-
-.hero h1 {
-  font-size: 2.5em;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  font-size: 1.2em;
-}
-
-.hero .cta {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 24px;
-  background: white;
-  color: #0077b6;
-  font-weight: bold;
-  border-radius: 5px;
-}
-
-.hero .cta:hover {
-  background: #caf0f8;
-}
-
-/* 📦 Servicios */
-.servicios {
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.servicios h2 {
-  font-size: 2em;
-  margin-bottom: 20px;
-}
-
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.card {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  width: 250px;
-  text-align: center;
-  display: block;
-  color: inherit;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  transition: transform 0.3s ease;
-}
-
-.card h3 {
-  margin-bottom: 10px;
-  font-size: 1.2em;
-  color: #0077b6;
-}
-
-.card p {
-  font-size: 0.95em;
-}
-
-/* 📞 Footer */
-footer {
-  background: #333;
-  color: white;
-  text-align: center;
-  padding: 15px;
-  font-size: 0.9em;
-}
-
-/* 📬 Formulario */
-.formulario {
-  max-width: 600px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.formulario label {
-  font-weight: bold;
-}
-
-.formulario input,
-.formulario textarea {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1em;
-}
-
-.formulario button {
-  padding: 12px;
-  background-color: #0077b6;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.formulario button:hover {
-  background-color: #00b4d8;
-}
-
-/* 📲 WhatsApp flotante */
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 1000;
-  width: 60px;
-  height: 60px;
-  background-color: #25D366;
-  border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.whatsapp-float:hover {
-  transform: scale(1.1);
-  transition: transform 0.3s ease;
-}
-
-.whatsapp-float img {
-  width: 32px;
-  height: 32px;
-  object-fit: contain;
-}
-
-/* 🛠️ Animación */
-main {
-  animation: fadeIn 0.8s ease-in;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* 📚 Bloques */
-.quienes {
-  padding: 40px 20px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.bloque {
-  background: #fff;
-  padding: 30px;
-  margin-bottom: 30px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-.bloque h2 {
-  font-size: 1.8em;
-  margin-bottom: 15px;
-  color: #0077b6;
-}
-
-.bloque p,
-.bloque ul {
-  font-size: 1em;
-  color: #333;
-}
-
-.bloque ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-.bloque ul li::before {
-  content: "✔️ ";
-  margin-right: 8px;
-}
-
-.cta-container {
-  text-align: center;
-  margin-top: 40px;
-}
-
-.cta-container .cta {
-  padding: 12px 24px;
-  background: #0077b6;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
-}
-
-.cta-container .cta:hover {
-  background: #00b4d8;
-}
-
-/* 📱 Responsive */
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
+// ➕ Agregar al carrito
+function agregarAlCarrito(id) {
+  const producto = productos.find(p => p.id === id);
+  const existente = carrito.find(p => p.id === id);
+  if (existente) {
+    existente.cantidad += 1;
+  } else {
+    carrito.push({ ...producto, cantidad: 1 });
   }
+  actualizarCarrito();
+}
 
-  nav .menu {
-    display: none;
-    flex-direction: column;
-    background-color: #004e89;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    padding: 20px;
-    z-index: 1000;
-  }
+// 🔄 Actualizar carrito
+function actualizarCarrito() {
+  const contenedor = document.getElementById("carrito");
+  if (!contenedor) return;
 
-  nav .menu.active {
-    display: flex;
-  }
+  contenedor.innerHTML = "";
+  carrito.forEach(p => {
+    const item = document.createElement("p");
+    item.textContent = `${p.nombre} x${p.cantidad} - $${p.precio * p.cantidad}`;
+    contenedor.appendChild(item);
+  });
 
-  nav .menu li {
-    margin-bottom: 10px;
-  }
+  const total = carrito.reduce((sum, p) => sum + p.precio * p.cantidad, 0);
+  const totalItem = document.createElement("p");
+  totalItem.innerHTML = `<strong>Total: $${total}</strong>`;
+  contenedor.appendChild(totalItem);
 
-  nav .menu li a {
-    font-size: 1.1em;
-    color: white;
-  }
-
-  .hero {
-    padding: 60px 15px;
-    background-attachment: scroll;
-  }
-
-  .hero-text h1 {
-    font-size: 1.8em;
-  }
-
-  .hero-text p {
-    font-size: 1.1em;
-  }
-
-  .cards {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .form-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .form-group.full {
-    grid-column: span 1;
+  // Botón de WhatsApp
+  if (!document.querySelector('.btn-whatsapp')) {
+    const boton = document.createElement("button");
+    boton.textContent = "Enviar pedido por WhatsApp";
+    boton.className = "btn-whatsapp";
+    boton.onclick = enviarPedido;
+    contenedor.appendChild(boton);
   }
 }
 
-@media (max-width: 480px) {
-  .card {
-    width: 100%;
-  }
-
-  .bloque {
-    padding: 20px;
-  }
-
-  .bloque h2 {
-    font-size: 1.4em;
-  }
-
-  .bloque p,
-  .bloque ul {
-    font-size: 0.95em;
-  }
-
-  .cta {
-    font-size: 0.95em;
-    padding: 10px 20px;
-  }
-
-    .whatsapp-float {
-    width: 50px;
-    height: 50px;
-    bottom: 15px;
-    right: 15px;
-  }
-
-  .whatsapp-float img {
-    width: 28px;
-    height: 28px;
-  }
+// 📤 Enviar pedido por WhatsApp
+function enviarPedido() {
+  let mensaje = "Hola, quiero pedir:\n";
+  carrito.forEach(p => {
+    mensaje += `• ${p.nombre} x${p.cantidad} = $${p.precio * p.cantidad}\n`;
+  });
+  const total = carrito.reduce((sum, p) => sum + p.precio * p.cantidad, 0);
+  mensaje += `Total: $${total}`;
+  const url = `https://wa.me/56988984202?text=${encodeURIComponent(mensaje)}`;
+  window.open(url, "_blank");
 }
 
-/* 🧱 Materiales */
-.materiales {
-  padding: 40px 20px;
-  max-width: 1000px;
-  margin: 0 auto;
+// 📋 Validación de formulario
+const formulario = document.querySelector(".formulario");
+if (formulario) {
+  formulario.addEventListener("submit", function(e) {
+    const nombre = document.getElementById("nombre").value.trim();
+    const email = document.getElementById("email").value.trim();
+    if (!nombre || !email) {
+      e.preventDefault();
+      alert("Por favor completá los campos obligatorios.");
+    }
+  });
 }
 
-.grid-materiales {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 15px;
-}
-
-.item {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  text-align: center;
-}
-
-.item img {
-  width: 100%;
-  height: auto;
-  max-height: 150px;
-  object-fit: contain;
-  border: 1px solid #ddd;
-  padding: 5px;
-  background: #f9f9f9;
-  border-radius: 5px;
-}
-
-.item h3 {
-  margin-top: 15px;
-  font-size: 1.1em;
-  color: #0077b6;
-}
-
-.item p {
-  font-size: 0.95em;
-  margin-top: 10px;
-}
-
-/* 🛒 Carrito */
-#carrito {
-  max-width: 600px;
-  margin: 30px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-#carrito p {
-  margin-bottom: 10px;
-}
-
-.btn-whatsapp {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 10px 20px;
-  background-color: #25D366;
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  text-align: center;
-}
-
-.btn-whatsapp:hover {
-  background-color: #1ebe5d;
-}
-
+// 🧠 Inicialización
+mostrarCatalogo();
