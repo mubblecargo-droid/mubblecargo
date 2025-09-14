@@ -218,9 +218,10 @@ background: linear-gradient(...), url("img/camion-fondo.jpg") ...
     }
   }
   function toggleMenu() {
-  const menu = document.querySelector('.menu');
+  const menu = document.querySelector('nav .menu');
   menu.classList.toggle('active');
 }
+
 
 
 
