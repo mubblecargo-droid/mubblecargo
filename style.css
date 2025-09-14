@@ -13,7 +13,7 @@ body {
   line-height: 1.6;
 }
 
-/* 📝 Estilos para enlaces */
+/* 📝 Enlaces */
 a {
   color: #0077b6;
   text-decoration: none;
@@ -40,7 +40,6 @@ nav .logo {
 
 nav .menu {
   list-style: none;
-  display: flex;
   gap: 20px;
 }
 
@@ -61,7 +60,7 @@ nav .menu li a:hover {
   z-index: 1001;
 }
 
-/* 🏠 Hero / Encabezado principal */
+/* 🏠 Hero */
 .hero {
   position: relative;
   padding: 100px 20px;
@@ -111,7 +110,7 @@ nav .menu li a:hover {
   background: #caf0f8;
 }
 
-/* 📦 Sección de servicios */
+/* 📦 Servicios */
 .servicios {
   padding: 40px 20px;
   text-align: center;
@@ -155,7 +154,7 @@ nav .menu li a:hover {
   font-size: 0.95em;
 }
 
-/* 📞 Pie de página */
+/* 📞 Footer */
 footer {
   background: #333;
   color: white;
@@ -226,7 +225,7 @@ footer {
   object-fit: contain;
 }
 
-/* 🛠️ Estilos adicionales */
+/* 🛠️ Animación */
 main {
   animation: fadeIn 0.8s ease-in;
 }
@@ -236,6 +235,7 @@ main {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* 📚 Bloques */
 .quienes {
   padding: 40px 20px;
   max-width: 900px;
@@ -290,8 +290,37 @@ main {
   background: #00b4d8;
 }
 
-/* 📱 Responsive */
+/* 📱 Responsive: menú hamburguesa y ajustes móviles */
 @media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav .menu {
+    display: none;
+    flex-direction: column;
+    background-color: #004e89;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 1000;
+  }
+
+  nav .menu.active {
+    display: flex;
+  }
+
+  nav .menu li {
+    margin-bottom: 10px;
+  }
+
+  nav .menu li a {
+    font-size: 1.1em;
+    color: white;
+  }
+
   .hero {
     padding: 60px 15px;
     background-attachment: scroll;
@@ -320,11 +349,6 @@ main {
 }
 
 @media (max-width: 480px) {
-  nav .menu {
-    flex-direction: column;
-    gap: 10px;
-  }
-
   .card {
     width: 100%;
   }
@@ -355,7 +379,7 @@ main {
     padding: 10px 20px;
   }
 
-  .whatsapp-float {
+   .whatsapp-float {
     width: 50px;
     height: 50px;
     bottom: 15px;
@@ -368,4 +392,47 @@ main {
   }
 }
 
-/* 🧱
+/* 🧱 Materiales */
+.materiales {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.grid-materiales {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+}
+
+.item {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.item img {
+  width: 100%;
+  height: auto;
+  max-height: 150px;
+  object-fit: contain;
+  border: 1px solid #ddd;
+  padding: 5px;
+  background: #f9f9f9;
+  border-radius: 5px;
+}
+
+.item h3 {
+  margin-top: 15px;
+  font-size: 1.1em;
+  color: #0077b6;
+}
+
+.item p {
+  font-size: 0.95em;
+  margin-top: 10px;
+  color: #555;
+  text-align: center;
+}
